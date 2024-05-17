@@ -1,0 +1,23 @@
+.ant-btn {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 52px;
+  border-radius: 8px;
+  height: auto;
+}
+
+.ant-btn.ant-btn-sm {
+  font-size: 12px;
+  padding: 8px 32px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.ant-btn-default {
+  border-color: #2033df;
+  color: #1203eb;
+}
+
+.ant-btn-primary {
+  box-shadow: none;
+}
