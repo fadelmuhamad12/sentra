@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Suspense } from 'react'
 import Loading from './components/Loading/Loading'
 
+
 function App() {
 
   return (
@@ -17,7 +18,6 @@ function App() {
           </Suspense>
         }
         >
-
         </Route>
       ))}
     </Routes>
