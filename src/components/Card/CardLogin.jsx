@@ -1,55 +1,40 @@
-import { Link } from "react-router-dom"
-import FormInput from '../Form/FormInput'
-import { Button, Card, Col, Flex, Form, Image, Row, Space, Typography } from 'antd'
+import { Link } from "react-router-dom";
+import FormInput from '../Form/FormInput';
+import { Button, Card, Col, Form, Row, Typography } from 'antd';
 
-const { Text, Title } = Typography
-
+const { Text, Title } = Typography;
+//
 const CardLogin = () => {
   return (
-    <Row gutter={[16, 16]}>
-      <Col span={24} style={{ marginTop: 100 }}>
+    <Row justify="center" style={{ minHeight: '100vh', alignItems: 'center' }}>
+      <Col>
         <Form>
-          <Flex justify="center">
-            <Card style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Flex justify="center">
-                <Row gutter={[16, 16]}>
-                  <Col span={24}>
-                    <Title style={{ textAlign: 'center' }}>SENTRA</Title>
-                  </Col>
-                    <Col span={24}>
-                      <FormInput name='email' />
-                    </Col>
-                    <Col span={24}>
-                      <FormInput name='password' />
-                    </Col>
-                  <Col span={24}>
-                    <Flex justify='center'>
-                      <Link to={'/home'}>
-                        <Button size='small'>Login</Button>
-                      </Link>
-                    </Flex>
-                  </Col>
-                  <Col span={24}>
-                    <Flex justify="center">
-                      <Text>
-                        Or
-                      </Text>
-                    </Flex>
-                  </Col>
-                  <Col span={24} style={{ textAlign: "center" }}>
-                    <Link to={"/sign-up"}>
-                      <Text type="primary">Sign Up</Text>
-                    </Link>
-                  </Col>
-                </Row>
-              </Flex>
-
-            </Card>
-          </Flex>
+          <Card style={{ padding: '40px 20px', maxWidth: '400px', margin: 'auto', textAlign: 'center' }}>
+            <Title level={2}>SENTRA</Title>
+            <Form.Item rules={[{ required: true, message: 'Please input your email!' }]}>
+              <FormInput name='email' placeholder="Input Email" style={{ width: '100%' }} />
+            </Form.Item>
+            <Form.Item rules={[{ required: true, message: 'Please input your password!' }]}>
+              <FormInput name='password' type="password" placeholder="Masukkan password" style={{ width: '100%' }} />
+            </Form.Item>
+            <Form.Item>
+              <Link to={'/home'}>
+                <Button type="primary" htmlType="submit" size="small">
+                  Login
+                </Button>
+              </Link>
+            </Form.Item>
+            <Text>Or</Text>
+            <Form.Item>
+              <Link to={"/sign-up"}>
+                <Text type="primary">Sign Up</Text>
+              </Link>
+            </Form.Item>
+          </Card>
         </Form>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
-export default CardLogin
+export default CardLogin;

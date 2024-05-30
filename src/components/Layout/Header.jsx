@@ -2,10 +2,13 @@ import React from 'react';
 // import { CartIcon } from '../../assets/icon/index'
 import { Badge, Col, Dropdown, Flex, Layout, Row, Space, Typography, Menu } from 'antd';
 import { Link } from 'react-router-dom';
-const { Header, Content, Footer } = Layout;
+const { Header } = Layout;
 const { Text } = Typography
 
-const Headers = () => {
+const Headers = (props) => {
+  const { data, loading } = props
+  const userName = data && data.user && data.user.length > 0 ? data.user[0].name : 'Guest';
+
   const items = [
     {
       key: 1,
@@ -41,8 +44,8 @@ const Headers = () => {
                 >
                 </div>
               </Badge>
-              <Dropdown overlay={<Menu items={items} />}>
-                <Text style={{ marginTop: 3, marginLeft: 20, cursor: 'pointer' }}>Profile</Text>
+              <Dropdown overlay={<Menu items={items} key={items?.id}/>}>
+                <Text style={{ marginTop: 3, marginLeft: 20, cursor: 'pointer' }}>Welcome, {userName}</Text>
               </Dropdown>
             </Flex>
           </Col>
