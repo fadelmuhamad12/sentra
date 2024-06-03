@@ -8,7 +8,7 @@ const DetailProduct = React.lazy(() => import('../pages/Product/DetailProduct.js
 const PRIVATE_ROUTES = [
   {
     index: false,
-    path: '/home',
+    path: '/',
     name: 'Home Page',
     key: 'homePage',
     element: <Home />

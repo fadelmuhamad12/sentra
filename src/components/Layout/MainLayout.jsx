@@ -1,15 +1,12 @@
 import { Layout } from 'antd'
 import  Headers  from './Partial/Header'
-import React, { useEffect } from 'react'
-import { Content } from 'antd/es/layout/layout'
-
-
+import Content from './Partial/Content'
 const MainLayout = (props) => {
 
   return (
     <Layout style={{ background: 'ffffff' }}>
       <Headers {...props} />
-      <Content {...props}/>
+      <Content {...props} />
     </Layout>
   
   )
