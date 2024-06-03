@@ -40,7 +40,7 @@ const CardPayment = (props) => {
           <Button size='small' onClick={openModal}>Pilih Pembayaran</Button>
         </Col>
       </Row>
-      {modal && <ModalPayment open={modal} onCancel={closeModal}/>}
+      {modal && <ModalPayment open={modal} onCancel={closeModal} cartCount={cartCount}/>}
     </Card>
   )
 }

@@ -4,6 +4,7 @@ import authFalseReducer from './Auth/authFalseReducer'
 import listProductReducer from "./Product/listProductReducer"
 import detailProductReducer from './Product/detailProductReducer'
 import cartReducer from "./AddToCart/AddToCartReducer"
+import searchReducer from "./Search/SearchReducer"
 
 
 export default combineReducers({
@@ -13,7 +14,8 @@ export default combineReducers({
   product: combineReducers({
     list: listProductReducer,
     detail: detailProductReducer,
-    addToCart: cartReducer
+    addToCart: cartReducer,
+    search: searchReducer
   })
 
 })

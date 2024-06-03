@@ -6,6 +6,7 @@ const Home = React.lazy(() => import('../pages/HomePage.jsx'))
 const DetailProduct = React.lazy(() => import('../pages/Product/DetailProduct.jsx'))
 const CartProduct = React.lazy(() => import('../pages/Product/CartProduct.jsx'))
 const PaymentProduct = React.lazy(() => import('../pages/Product/PaymentProduct.jsx'))
+const PaymentSuccess = React.lazy(() => import('../pages/Product/ProductSuccessfully.jsx'))
 
 const PRIVATE_ROUTES = [
   {
@@ -35,6 +36,13 @@ const PRIVATE_ROUTES = [
     name: 'payment Product',
     key: 'paymentProduct',
     element: <PaymentProduct />
+  },
+  {
+    index: false,
+    path: '/payment-success',
+    name: 'payment Product',
+    key: 'paymentProduct',
+    element: <PaymentSuccess />
   },
   {
     index: false,

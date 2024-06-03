@@ -11,6 +11,7 @@ const HomeLayout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
   useEffect(() => {
     dispatch(listProductAction());
 
@@ -20,6 +21,9 @@ const HomeLayout = () => {
   }, [dispatch]);
 
   const { data, loading } = useSelector((state) => state.product.list);
+
+  const searchQuery = useSelector((state) => state.product.search);
+
 
   const detailProduct = (id) => {
     navigate(`/product/${id}`);
@@ -34,12 +38,18 @@ const HomeLayout = () => {
     background: '#364d79',
   };
 
+  const filteredData = data?.filter(item => {
+    if (typeof searchQuery !== 'string') return true; // Return true if searchQuery is not a string
+    return item.name.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+  
+
   return (
     <div style={{ padding: '0 350px' }}>
       <Row gutter={[16, 16]}>
         <Col span={24}>
           <Carousel dots={true} autoplay arrows={true}>
-            {data?.map((item) => (
+            {filteredData?.map((item) => (
               <div key={item.id} style={contentStyle}>
                 <img src={item.image} alt={item.name} style={{ maxHeight: '400px', maxWidth: '100%' }} />
               </div>
@@ -53,7 +63,7 @@ const HomeLayout = () => {
             )}
           </div>
           <Row gutter={[16, 16]} justify="center">
-            {data?.map((item) => (
+            {filteredData?.map((item) => (
               <Col xs={24} sm={12} md={8} lg={6} key={item.id}>
                 <CardProduct name={item?.name} id={item?.id} price={item?.price} rating={item?.rating} image={item?.image} detailProduct={detailProduct}/>
               </Col>
