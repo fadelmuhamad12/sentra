@@ -17,7 +17,7 @@ function App() {
     dispatch(authUserFalse())
   }, [dispatch]);
 
-  const { authed } = useSelector((state) => state.authReducer);
+  const { data, authed } = useSelector((state) => state.authReducer);
   
   // const { authed } = useSelector((state) => state.authFalseReducer)
 
@@ -63,7 +63,7 @@ function App() {
           element={
             <Suspense fallback={<Loading />}>
               <PrivateRoute authed={authed}>
-                <MainLayout>{item?.element}</MainLayout>
+                <MainLayout data={data}>{item?.element}</MainLayout>
               </PrivateRoute>
             </Suspense>
           }

@@ -1,13 +1,15 @@
 import React from 'react';
 // import { CartIcon } from '../../assets/icon/index'
 import { Badge, Col, Dropdown, Flex, Layout, Row, Space, Typography, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 const { Header } = Layout;
 const { Text } = Typography
 
 const Headers = (props) => {
-  const { data, loading } = props
-  const userName = data && data.user && data.user.length > 0 ? data.user[0].name : 'Guest';
+  const { data } = props
+  const navigate = useNavigate()
 
   const items = [
     {
@@ -16,6 +18,12 @@ const Headers = (props) => {
     }
   ];
 
+  const cart = () => {
+    navigate('/cart')
+  }
+
+  const cartCount = useSelector((state) => state.product.addToCart);
+  
   return (
     <>
       <Header style={{ background: '#29B475', width: '100vw' }}>
@@ -29,7 +37,7 @@ const Headers = (props) => {
               </Space>
               {/* React Component still not work ==== */}
               {/* <CartIcon /> */}
-              <Badge count={5}>
+              <Badge count={cartCount?.totalCount}>
                 <div
                   style={{
                     width: 26,
@@ -40,12 +48,12 @@ const Headers = (props) => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     cursor: 'pointer',
-                  }}
+                  }} onClick={cart}
                 >
                 </div>
               </Badge>
               <Dropdown overlay={<Menu items={items} key={items?.id}/>}>
-                <Text style={{ marginTop: 3, marginLeft: 20, cursor: 'pointer' }}>Welcome, {userName}</Text>
+                <Text style={{ marginTop: 3, marginLeft: 20, cursor: 'pointer' }}>Welcome, {data?.user[0]?.name}</Text>
               </Dropdown>
             </Flex>
           </Col>

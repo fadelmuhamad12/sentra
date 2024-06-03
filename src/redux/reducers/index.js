@@ -3,6 +3,7 @@ import authReducer from "./Auth/authReducer"
 import authFalseReducer from './Auth/authFalseReducer'
 import listProductReducer from "./Product/listProductReducer"
 import detailProductReducer from './Product/detailProductReducer'
+import cartReducer from "./AddToCart/AddToCartReducer"
 
 
 export default combineReducers({
@@ -11,7 +12,8 @@ export default combineReducers({
 
   product: combineReducers({
     list: listProductReducer,
-    detail: detailProductReducer
+    detail: detailProductReducer,
+    addToCart: cartReducer
   })
 
 })

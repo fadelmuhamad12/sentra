@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Link from 'antd/es/typography/Link';
-import { StarFilled } from '@ant-design/icons';
+import CardProduct from '../../Card/CardProduct';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Carousel, Col, Row, Typography, Skeleton, Space } from 'antd';
+import { Carousel, Col, Row, Typography, Skeleton } from 'antd';
 import { listProductAction, unmountListProductAction } from '../../../redux/actions/ProductAction/listProductAction';
 
 const { Text } = Typography;
@@ -56,25 +55,7 @@ const HomeLayout = () => {
           <Row gutter={[16, 16]} justify="center">
             {data?.map((item) => (
               <Col xs={24} sm={12} md={8} lg={6} key={item.id}>
-                <Card
-                  hoverable
-                  style={{ width: '100%', marginTop: 50 }}
-                  cover={<img src={item.image} alt={item.name} />}
-                  onClick={() => detailProduct(item.id)}
-                >
-                  <div style={{ textAlign: 'center' }}>
-                    <Text style={{ color: 'black' }}>{item.name}</Text>
-                  </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <Text style={{ color: 'black', fontWeight: 700 }}>Rp.{item.price}</Text>
-                  </div>
-                  <div style={{ textAlign: 'start' }}>
-                    <Space size={4}>
-                      <StarFilled style={{ color: 'yellowgreen', marginTop: 5 }} />
-                      <Text style={{ color: 'grey', fontSize: 13 }}>{item.rating}</Text>
-                    </Space>
-                  </div>
-                </Card>
+                <CardProduct name={item?.name} id={item?.id} price={item?.price} rating={item?.rating} image={item?.image} detailProduct={detailProduct}/>
               </Col>
             ))}
           </Row>
