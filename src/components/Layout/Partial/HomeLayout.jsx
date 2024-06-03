@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Carousel, Col, Row, Typography, Skeleton, Space } from 'antd';
-import { listProductAction, unmountListProductAction } from '../../redux/actions/ProductAction/listProductAction';
+import { listProductAction, unmountListProductAction } from '../../../redux/actions/ProductAction/listProductAction';
 import { StarFilled } from '@ant-design/icons';
-import { detailProductAction } from '../../redux/actions/ProductAction/detailProductAction';
+import { detailProductAction } from '../../../redux/actions/ProductAction/detailProductAction';
 import Link from 'antd/es/typography/Link';
 
 const { Text } = Typography;

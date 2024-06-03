@@ -3,8 +3,9 @@
     {
       "id": 1,
       "auth": true,
-      "name": "Fadel"
+      "name": "hc_satu"
     }
   ],
-  "count": 1
+  "count": 1,
+  "role": "hc_satu"
 }
