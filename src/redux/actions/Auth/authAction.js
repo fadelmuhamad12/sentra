@@ -25,7 +25,7 @@ export const signUpAction = (userData) => async (dispatch) => {
   dispatch({ type: 'SIGN_UP' });
   try {
     const response = await API.POST_AUTH('http://localhost:2002/signup', userData);
-    const token = response.data.access_token;
+    const token = response.token;
     const decodedUserData = jwt.decode(token);
     dispatch({
       type: 'SIGN_UP_SUCCESS',
@@ -66,3 +66,9 @@ export const loginAction = (values, successCB, failedCB) => async (dispatch) => 
     });
 };
 
+
+export const logoutAction = () => (dispatch) => {
+  localStorage.removeItem('token');
+
+  dispatch({ type: "LOGOUT" });
+};

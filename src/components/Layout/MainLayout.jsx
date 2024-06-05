@@ -3,10 +3,10 @@ import  Headers  from './Partial/Header'
 import Content from './Partial/Content'
 import Footers from './Partial/Footers'
 const MainLayout = (props) => {
-  const { data } = props
+  const { userData } = props
   return (
     <Layout style={{ background: 'ffffff' }}>
-      <Headers {...props} data={data}/>
+      <Headers {...props} userData={userData}/>
       <Content {...props} />
       <Footers {...props} />
     </Layout>

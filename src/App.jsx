@@ -19,7 +19,7 @@ function App() {
 
   // const { data, authed } = useSelector((state) => state.authReducer);
   
-  const { data, authed } = useSelector((state) => state.loginReducer)
+  const { userData, authed } = useSelector((state) => state.loginReducer)
 
   const PrivateRoute = ({ authed, children }) => {
     if (!authed) {
@@ -63,7 +63,7 @@ function App() {
           element={
             <Suspense fallback={<Loading />}>
               <PrivateRoute authed={authed}>
-                <MainLayout data={data}>{item?.element}</MainLayout>
+                <MainLayout userData={userData}>{item?.element}</MainLayout>
               </PrivateRoute>
             </Suspense>
           }

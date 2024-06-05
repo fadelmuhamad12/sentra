@@ -6,12 +6,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { setSearchQuery } from '../../../redux/actions/Search/searchAction';
 import { SearchOutlined, BellOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import { Badge, Col, Dropdown, Layout, Row, Space, Typography, Menu, Input, Flex, Image } from 'antd';
+import { logoutAction } from '../../../redux/actions/Auth/authAction';
 
 const { Header } = Layout;
 const { Text, Title } = Typography;
 
 const Headers = (props) => {
-  const { data } = props;
+  const { userData } = props;
+  console.log(userData);
   const navigate = useNavigate();
   const searchQuery = useSelector((state) => state.product.search);
 
@@ -19,13 +21,17 @@ const Headers = (props) => {
     dispatch(setSearchQuery(e.target.value));
   };
 
-  const items = [
-    {
-      key: 1,
-      label: <Link to='/signout'><Text>Sign Out</Text></Link>
-    }
-  ];
-
+  const handleSignOut = () => {
+    dispatch(logoutAction()); 
+  };
+  
+  const items = (
+    <Menu>
+      <Menu.Item key="signout" onClick={handleSignOut}>
+        Sign Out
+      </Menu.Item>
+    </Menu>
+  );
   const cartHandler = () => {
     navigate('/cart');
   };
@@ -74,7 +80,7 @@ const Headers = (props) => {
               <Dropdown overlay={<Menu items={items} />}>
                 <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
                   <UserOutlined style={{ fontSize: '20px', color: 'white' }} />
-                  <Text style={{ marginLeft: 8, color: 'white' }}>Welcome, {data?.user[0]?.name}</Text>
+                  <Text style={{ marginLeft: 8, color: 'white' }}>Welcome, {userData?.username}</Text>
                 </div>
               </Dropdown>
             </Space>
