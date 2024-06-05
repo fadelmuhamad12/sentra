@@ -1,6 +1,9 @@
 const AUTH_USER =  "AUTH_USER"
 const AUTH_USER_SUCCESS = "AUTH_USER_SUCCESS"
 const AUTH_USER_FAILED = "AUTH_USER_FAILED"
+const SIGN_UP = 'SIGN_UP'
+const SIGN_UP_FAILED = 'SIGN_UP_FAILED'
+const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS'
 
 const initialState = {
   data: [],
@@ -31,6 +34,24 @@ const authReducer = (state =  initialState, action) => {
         loading : false,
         authed : false,
         message : 'FAILED'
+      }
+    case SIGN_UP:
+      return {
+        ...state,
+        loading: true
+      }
+    case SIGN_UP_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        authed: true,
+        userData: action.payload.userData
+      }
+    case SIGN_UP_FAILED:
+      return {
+        ...state,
+        loading: false,
+        authed: false
       }
     default:
       return state

@@ -17,9 +17,9 @@ function App() {
     dispatch(authUserFalse())
   }, [dispatch]);
 
-  const { data, authed } = useSelector((state) => state.authReducer);
+  // const { data, authed } = useSelector((state) => state.authReducer);
   
-  // const { authed } = useSelector((state) => state.authFalseReducer)
+  const { data, authed } = useSelector((state) => state.loginReducer)
 
   const PrivateRoute = ({ authed, children }) => {
     if (!authed) {

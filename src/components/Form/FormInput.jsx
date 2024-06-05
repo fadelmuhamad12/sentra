@@ -32,19 +32,27 @@ const FormInput = (props) => {
             { type: "text", message: "Please Input Your username!" },
           ]}
         >
-          <Input placeholder="Input Username"/>
+          <Input placeholder="Input Username" />
         </Form.Item>
       )}
-       {name === 'phoneNumber' && (
+      {name === 'phoneNumber' && (
         <Form.Item
           name='phone'
-          label='Phone Number'
+          label='Phone Number'>
+          <Input addonBefore={prefixNumber} placeholder="Input Phone Number" />
+        </Form.Item>
+      )}
+
+      {name === 'address' && (
+        <Form.Item
+          name='address'
+          label='address'
           rules={[
-            { required: true, message: "Please Input Your Phone Number!" },
-            { type: "number", message: "Please Input Your Phone Number!" },
+            { required: true, message: "Please Input Your Address!" },
+            { type: "text", message: "Please Input Your Address!" },
           ]}
         >
-          <Input addonBefore={prefixNumber} placeholder="Input Phone Number"/>
+          <Input placeholder="Address" />
         </Form.Item>
       )}
       {name === 'email' && (
@@ -56,7 +64,7 @@ const FormInput = (props) => {
             { type: "email", message: "Please Input Your email!" },
           ]}
         >
-          <Input placeholder="Input Email"/>
+          <Input placeholder="Input Email" />
         </Form.Item>
       )}
 
@@ -69,8 +77,8 @@ const FormInput = (props) => {
             { required: true, message: "password wajib di isi!" },
             { min: 8, message: "Masukkan password dengan benar!" },
             {
-              pattern:
-                /^(?!.*\s)(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%!\-_?&]).{8,}(?<!\s)$/,
+              // pattern:
+              //   /^(?!.*\s)(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%!\-_?&]).{8,}(?<!\s)$/,
               message: "Masukkan password dengan benar!",
             },
           ]}
