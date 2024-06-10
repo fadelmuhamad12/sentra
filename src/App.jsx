@@ -16,9 +16,6 @@ function App() {
   }, [dispatch]);
 
   const { userData, authed } = useSelector((state) => state.authReducer);
-  console.log(userData);
-  // const user = useSelector((state) => state.authChecked)
-  // console.log(user,'usr');
 
   const PrivateRoute = ({ authed, children }) => {
     if (!authed) {
