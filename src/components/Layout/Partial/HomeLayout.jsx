@@ -22,6 +22,8 @@ const HomeLayout = () => {
 
   const { data, loading } = useSelector((state) => state.product.list);
 
+
+
   const searchQuery = useSelector((state) => state.product.search);
 
 

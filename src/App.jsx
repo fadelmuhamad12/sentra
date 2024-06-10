@@ -7,19 +7,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import MainLayout from './components/Layout/MainLayout';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { authAction } from './redux/actions/Auth/authAction';
-import { authUserFalse } from './redux/actions/Auth/authFalseAction';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(authAction());
-    dispatch(authUserFalse())
   }, [dispatch]);
 
-  // const { data, authed } = useSelector((state) => state.authReducer);
-  
-  const { userData, authed } = useSelector((state) => state.loginReducer)
+  const { userData, authed } = useSelector((state) => state.authReducer);
+  console.log(userData);
+  // const user = useSelector((state) => state.authChecked)
+  // console.log(user,'usr');
 
   const PrivateRoute = ({ authed, children }) => {
     if (!authed) {

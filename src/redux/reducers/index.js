@@ -6,12 +6,14 @@ import detailProductReducer from './Product/detailProductReducer'
 import cartReducer from "./AddToCart/AddToCartReducer"
 import searchReducer from "./Search/SearchReducer"
 import loginReducer from './Auth/loginReducer'
+import authChecked from "./Auth/AuthChecked"
 
 
 export default combineReducers({
   authReducer,
   authFalseReducer,
   loginReducer,
+  authChecked,
 
   product: combineReducers({
     list: listProductReducer,

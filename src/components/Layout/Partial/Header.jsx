@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-// import { CartIcon } from '../../assets/icon/index'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { IconCart } from '../../../assets/images';
 import { Link, useNavigate } from 'react-router-dom';
 import { setSearchQuery } from '../../../redux/actions/Search/searchAction';
 import { SearchOutlined, BellOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
-import { Badge, Col, Dropdown, Layout, Row, Space, Typography, Menu, Input, Flex, Image } from 'antd';
+import { Badge, Col, Dropdown, Layout, Row, Space, Typography, Menu, Input, Flex, Image, message } from 'antd';
 import { logoutAction } from '../../../redux/actions/Auth/authAction';
 
 const { Header } = Layout;
 const { Text, Title } = Typography;
 
 const Headers = (props) => {
+  const dispatch = useDispatch()
   const { userData } = props;
-  console.log(userData);
   const navigate = useNavigate();
   const searchQuery = useSelector((state) => state.product.search);
 
@@ -22,16 +21,24 @@ const Headers = (props) => {
   };
 
   const handleSignOut = () => {
-    dispatch(logoutAction()); 
+    dispatch(logoutAction(() => {
+      return message.success('Logout Success')
+    }, () => {
+      return message.error('Error')
+    })); 
   };
   
-  const items = (
-    <Menu>
-      <Menu.Item key="signout" onClick={handleSignOut}>
-        Sign Out
-      </Menu.Item>
-    </Menu>
-  );
+  const items = [
+    {
+      key: 'signout',
+      label: (
+        <span onClick={handleSignOut}>
+          Sign Out
+        </span>
+      ),
+    },
+  ];
+
   const cartHandler = () => {
     navigate('/cart');
   };
