@@ -7,6 +7,7 @@ import cartReducer from "./AddToCart/AddToCartReducer"
 import searchReducer from "./Search/SearchReducer"
 import loginReducer from './Auth/loginReducer'
 import authChecked from "./Auth/AuthChecked"
+import admin from './Auth/admin'
 
 
 export default combineReducers({
@@ -14,6 +15,7 @@ export default combineReducers({
   authFalseReducer,
   loginReducer,
   authChecked,
+  admin,
 
   product: combineReducers({
     list: listProductReducer,
