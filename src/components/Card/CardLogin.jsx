@@ -1,10 +1,8 @@
-import React from 'react';
 import { Link } from "react-router-dom";
 import FormInput from '../Form/FormInput';
 import { useDispatch } from "react-redux";
-import { Button, Card, Col, Form, Row, Typography, message } from 'antd';
 import { loginAction } from "../../redux/actions/Auth/authAction";
-import { FacebookOutlined, GoogleOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Form, Row, Typography, message } from 'antd';
 
 const { Text, Title } = Typography;
 

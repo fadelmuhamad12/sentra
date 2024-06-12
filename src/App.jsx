@@ -21,8 +21,6 @@ function App() {
   // const { userData, authed } = useSelector((state) => state.authReducer);
   const { data, authed } = useSelector((state) => state.admin);
 
-  console.log(data);
-
   const PrivateRoute = ({ authed, children }) => {
     if (!authed || !data?.auth) {
       return <Navigate to='/' />;
