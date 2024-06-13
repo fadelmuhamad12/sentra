@@ -93,6 +93,15 @@ const DrawerCreateProduct = (props) => {
           </Form.Item>
         </Col>
         <Col span={24}>
+          <Form.Item
+            name="rating"
+            label="Rating"
+            rules={[{ required: true, message: 'Please input the Rating!' }]}
+          >
+            <Input placeholder="Input Rating" allowClear />
+          </Form.Item>
+        </Col>
+        <Col span={24}>
           <Form.Item>
             <Flex justify="flex-end">
               <Button type="primary" htmlType="submit" size="small">

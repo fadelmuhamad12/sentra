@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import PUBLIC_ROUTES from './routes/PublicRoutes';
 import PRIVATE_ROUTES from './routes/PrivateRoutes';
-import ADMIN_ROUTES from './routes/AdminRoutes'; // assuming this import was missing
+import ADMIN_ROUTES from './routes/AdminRoutes';
 import Loading from './components/Loading/Loading';
 import MainLayout from './components/Layout/MainLayout';
 import { authAction } from './redux/actions/Auth/authAction';
@@ -22,7 +22,7 @@ function App() {
   const { data, authed } = useSelector((state) => state.admin);
 
   const PrivateRoute = ({ authed, children }) => {
-    if (!authed || !data?.auth) {
+    if (!authed) {
       return <Navigate to='/' />;
     }
     return children;

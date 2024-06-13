@@ -47,11 +47,11 @@ const Headers = (props) => {
 
   return (
     <>
-      <Header style={{ background: '#29B475', width: '100vw', display: 'flex', alignItems: 'center' }}>
+      <Header style={{ background: '#6FC6FB', width: '100vw', display: 'flex', alignItems: 'center' }}>
         <Row style={{ flex: 1, alignItems: 'center' }}>
           <Col span={4} style={{ marginTop: -15 }}>
             <Link to='/'>
-              <Title level={4} style={{ color: 'white' }}>SentraPedia</Title>
+              <Title level={4} style={{ color: 'black' }}>SentraPedia</Title>
             </Link>
           </Col>
           <Col span={12}>
@@ -79,15 +79,15 @@ const Headers = (props) => {
                   }}
                   onClick={cartHandler}
                 >
-                  <Image src={IconCart} preview={false} style={{ marginTop: -8 }}/>
+                  <Image src={IconCart} preview={false} style={{ marginTop: -8, color: 'black' }}/>
                 </div>
               </Badge>
-              <BellOutlined style={{ fontSize: '20px', color: 'white', cursor: 'pointer' }} />
-              <MailOutlined style={{ fontSize: '20px', color: 'white', cursor: 'pointer' }} />
+              <BellOutlined style={{ fontSize: '20px', color: 'black', cursor: 'pointer' }} />
+              <MailOutlined style={{ fontSize: '20px', color: 'black', cursor: 'pointer' }} />
               <Dropdown overlay={<Menu items={items} />}>
                 <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                  <UserOutlined style={{ fontSize: '20px', color: 'white' }} />
-                  <Text style={{ marginLeft: 8, color: 'white' }}>Welcome, {userData?.username}</Text>
+                  <UserOutlined style={{ fontSize: '20px', color: 'black' }} />
+                  <Text style={{ marginLeft: 8, color: 'black' }}>Welcome, {userData?.username}</Text>
                 </div>
               </Dropdown>
             </Space>

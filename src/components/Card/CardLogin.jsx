@@ -8,16 +8,16 @@ const { Text, Title } = Typography;
 
 const LoginHeader = () => {
   return (
-    <div style={{ backgroundColor: '#FFFFFF', borderBottom: '-10px solid #FA5A2C' }}>
+    <div style={{ backgroundColor: '#FFFFFF', borderBottom: '-10px solid #094265' }}>
       <Row justify="space-between" align="middle" style={{ padding: '20px 20px' }}>
         <Col>
           <Row align="middle">
-            <Text style={{ color: '#FA5A2C', fontSize: '18px', fontWeight: 'bold', marginRight: '5px' }}>SentraPedia</Text>
+            <Text style={{ color: '#094265', fontSize: '18px', fontWeight: 'bold', marginRight: '5px' }}>SentraPedia</Text>
             <Text style={{ color: '#000000', fontSize: '18px', fontWeight: 600 }}>Log in</Text>
           </Row>
         </Col>
         <Col>
-          <Link to="/" style={{ color: '#FA5A2C', fontSize: '14px' }}>Butuh bantuan?</Link>
+          <Link to="/" style={{ color: '#094265', fontSize: '14px' }}>Butuh bantuan?</Link>
         </Col>
       </Row>
     </div>
@@ -39,11 +39,11 @@ const CardLogin = () => {
   return (
     <div>
       <LoginHeader />
-      <Row justify="center" style={{ minHeight: '100vh', alignItems: 'center', backgroundColor: '#FA5A2C' }}>
+      <Row justify="center" style={{ minHeight: '100vh', alignItems: 'center', backgroundColor: '#6FC6FB' }}>
         <Col>
           <Form onFinish={onFinish}>
             <Card style={{ padding: '40px 20px', maxWidth: '400px', margin: 'auto', textAlign: 'center' }}>
-              <Title level={2} style={{ color: '#FA5A2C' }}>Sentra</Title>
+              <Title level={2} style={{ color: '#094265' }}>Sentra</Title>
               <Form.Item rules={[{ required: true, message: 'Please input your username!' }]}>
                 <FormInput name='username' placeholder="No. Handphone/Username/Email" style={{ width: '100%' }} />
               </Form.Item>
@@ -51,7 +51,7 @@ const CardLogin = () => {
                 <FormInput name='password' type="password" placeholder="Password" style={{ width: '100%' }} />
               </Form.Item>
               <Form.Item>
-                <Button type="primary" htmlType="submit" style={{ width: '100%', backgroundColor: '#FA5A2C', borderColor: '#FA5A2C' }}>
+                <Button type="primary" htmlType="submit" style={{ width: '100%', backgroundColor: '#094265' }}>
                   Log In
                 </Button>
               </Form.Item>

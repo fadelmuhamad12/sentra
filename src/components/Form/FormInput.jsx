@@ -74,16 +74,16 @@ const FormInput = (props) => {
           name="password"
           label="Password"
           rules={[
-            { required: true, message: "password wajib di isi!" },
-            { min: 8, message: "Masukkan password dengan benar!" },
+            { required: true, message: "Please input your password!" },
+            { min: 8, message: "Please input your password!" },
             {
               // pattern:
               //   /^(?!.*\s)(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%!\-_?&]).{8,}(?<!\s)$/,
-              message: "Masukkan password dengan benar!",
+              message: "Please input your password!",
             },
           ]}
         >
-          <Input.Password placeholder="Masukkan password" />
+          <Input.Password placeholder="Input password" />
         </Form.Item>
       )}
     </>

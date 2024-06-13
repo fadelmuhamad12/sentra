@@ -65,7 +65,6 @@ const Footer = () => {
         {lg ? (
           <Row gutter={[16, 16]} align='middle'>
             <Col xs={24} sm={24} md={24} lg={10}>
-              <Image src={Faze} preview={false} width={170} height={52} loading='lazy' />
             </Col>
             <Col xs={24} sm={24} md={24} lg={14} style={{ justifyContent: lg && 'flex-end' }}>
               <Row gutter={16}>
@@ -157,14 +156,14 @@ const Footer = () => {
           textAlign: 'center',
           height: lg ? 56 : 72,
           alignItems: 'center',
-          background: '#00A651',
+          background: '#6FC6FB',
           justifyContent: 'center',
         }}
       >
         <div className='container'>
           <Row gutter={16}>
             <Col span={24}>
-              <Text className='fs-14 white'>Copyright © SentraPedia 2024 | Designed & Development by F2k</Text>
+              <Text className='fs-14 white'>Copyright © SentraPedia 2024 | Designed & Development by Ravi</Text>
             </Col>
           </Row>
         </div>

@@ -1,5 +1,5 @@
 import { StarFilled } from '@ant-design/icons'
-import { Button, Card, Col, Flex, Image, Row, Space, Typography } from 'antd'
+import { Button, Card, Col, Flex, Image, Row, Space, Tag, Typography } from 'antd'
 import React from 'react'
 
 const { Text } = Typography
@@ -31,7 +31,7 @@ const CardDetailProduct = (props) => {
             </Space>
           </Col>
           <Col span={24}>
-            <Text style={{ color: 'black', fontSize: 14 }}>{data?.status}</Text>
+            <Tag style={{ color: '#6FC6FB', fontSize: 14, marginTop: 10, borderRadius: 10 }}>{data?.status}</Tag>
           </Col>
         </Row>
       </Col>
