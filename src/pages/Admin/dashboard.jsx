@@ -42,13 +42,13 @@ const Dashboard = () => {
 
   const openModal = (id) => {
     dispatch(detailProductAction(id));
-    setCurrentProductId(id); // Set the current product ID
+    setCurrentProductId(id); 
     setModal(true);
   };
 
   const closeModal = () => {
     setModal(false);
-    setCurrentProductId(null); // Reset the current product ID
+    setCurrentProductId(null); 
   };
 
   const { data, loading } = useSelector((state) => state.product.list);

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signUpAction } from "../../redux/actions/Auth/authAction";
-import { Button, Card, Col, Row, Typography, message, Form, Input } from 'antd';
+import { Button, Card, Col, Row, Typography, message, Form, Input, Select } from 'antd';
 
 const { Text, Title } = Typography;
 
@@ -68,6 +68,12 @@ const CardSignUp = () => {
                 rules={[{ required: true, message: 'Please input your address!' }]}
               >
                 <Input placeholder="Address" style={{ width: '100%' }} />
+              </Form.Item>
+              <Form.Item name='role'>
+                <Select placeholder="Select Role">
+                  <Select.Option value="admin">Admin</Select.Option>
+                  <Select.Option value="User">User</Select.Option>
+                </Select>
               </Form.Item>
               <Form.Item
                 name="password"

@@ -1,4 +1,4 @@
-import { Button, Col, Modal, Row, Space, Typography, message } from 'antd';
+import { Button, Col, Flex, Modal, Row, Space, Typography, message } from 'antd';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteProductAction } from '../../redux/actions/Admin/DeleteAction';
@@ -11,7 +11,7 @@ const ModalDelete = ({ openModal, closeModal, productId }) => {
 
   const handleSubmit = async () => {
     try {
-      await dispatch(deleteProductAction(productId));
+      dispatch(deleteProductAction(productId));
       message.success('Successfully deleted this product');
       dispatch(listProductAction());
       closeModal();
@@ -23,14 +23,21 @@ const ModalDelete = ({ openModal, closeModal, productId }) => {
   return (
     <Modal
       open={openModal}
-      onCancel={closeModal}
-      onOk={handleSubmit}
-      okText="Delete"
-      cancelText="Cancel"
+      footer={null}
+
     >
       <Row gutter={[16, 16]}>
         <Col span={24}>
           <Text>Are you sure you want to delete this product?</Text>
+        </Col>
+        <Col span={24}>
+          <Flex justify='flex-end'>
+            <Space>
+              <Button size='small' onClick={closeModal}>Cancel</Button>
+              <Button size='small' onClick={handleSubmit} >Delete</Button>
+            </Space>
+
+          </Flex>
         </Col>
       </Row>
     </Modal>

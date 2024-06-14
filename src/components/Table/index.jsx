@@ -47,7 +47,7 @@ const TableComponent = (props) => {
               alignItems: 'center',
               padding: '0px 10px',
             }}>
-            <Pagination onChange={onChange} current={Number(page)} total={count} pageSize={Number(limit)}/>
+            {/* <Pagination onChange={onChange} current={Number(page)} total={count} pageSize={Number(limit)}/> */}
           </Col>
         </Row>
       </Col>
