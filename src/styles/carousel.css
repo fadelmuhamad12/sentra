@@ -1,0 +1,17 @@
+.custom-carousel .carousel-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.carousel-image {
+  min-height: 20%;
+  min-width: 20%;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit:contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

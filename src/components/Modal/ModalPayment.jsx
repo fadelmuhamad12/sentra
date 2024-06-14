@@ -1,27 +1,50 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { Modal, Button, Radio, Divider, Alert, Row, Col, Typography, Switch, Flex, Avatar } from 'antd'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Modal, Button, Radio, Divider, Alert, Row, Col, Typography, Switch, message, Flex } from 'antd';
 
-const { Title, Text } = Typography
+const { Title, Text } = Typography;
 
 const ModalPayment = (props) => {
-  const { open, onCancel, cartCount } = props
-  const navigate = useNavigate()
+  const { open, onCancel, cartCount } = props;
+  const navigate = useNavigate();
 
-  const [isSwitch, setIsSwitch] = useState(false)
-  const [isSwitchDana, setIsSwitchDana] = useState(false)
+  const [isSwitch, setIsSwitch] = useState(false);
+  const [isSwitchDana, setIsSwitchDana] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const onSwitchHandler = () => {
-    setIsSwitch(!isSwitch)
-  }
+    setIsSwitch(!isSwitch);
+  };
 
   const onSwitchDanaHandler = () => {
-    setIsSwitchDana(!isSwitchDana)
-  }
+    setIsSwitchDana(!isSwitchDana);
+  };
 
-  const onSubmit = () => {
-    navigate('/payment-success')
-  }
+  const onSubmit = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('http://localhost:2002/product/payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ items: cartCount.items }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        message.success('Payment Successfully');
+        navigate('/payment-success');
+      } else {
+        message.error(data.message || 'Payment failed');
+      }
+    } catch (error) {
+      message.error('An error occurred while processing the payment');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Modal
@@ -99,15 +122,13 @@ const ModalPayment = (props) => {
         </Col>
 
         <Col span={24} style={{ marginTop: 10 }}>
-          <Link to='/payment-success'>
-            <Button type="primary" block onSubmit={onSubmit} disabled={(isSwitch || isSwitchDana)}>
-              Bayar
-            </Button>
-          </Link>
+          <Button type="primary" block onClick={onSubmit} disabled={(isSwitch || isSwitchDana) || loading}>
+            {loading ? 'Processing...' : 'Bayar'}
+          </Button>
         </Col>
       </Row>
     </Modal>
-  )
-}
+  );
+};
 
-export default ModalPayment
+export default ModalPayment;

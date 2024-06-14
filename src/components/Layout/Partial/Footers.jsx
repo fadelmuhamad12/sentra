@@ -112,11 +112,6 @@ const Footer = () => {
               <Divider />
             </Col>
             <Col span={24}>
-              <Space justify='center'>
-                <Image src={Faze} preview={false} width={170} height={52} loading='lazy' />
-              </Space>
-            </Col>
-            <Col span={24}>
               <Space justify='center' style={{ textAlign: 'center' }}>
                 <Text className='fw-700' type='primary'>
                   “Trust the Journey, <br /> Trust the Diagnosis”

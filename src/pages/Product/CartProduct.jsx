@@ -8,7 +8,6 @@ const CartProduct = () => {
   const { Text } = Typography;
 
   const cartCount = useSelector((state) => state.product.addToCart);
-  console.log(cartCount);
 
   const handleBack = () => {
     window.history.back();
