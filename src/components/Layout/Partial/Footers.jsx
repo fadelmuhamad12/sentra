@@ -28,7 +28,7 @@ const Footer = () => {
     {
       key: 'Cart',
       children: (
-        <Link to='/'>
+        <Link to='/cart'>
           <Text className='fs-16'>Cart</Text>
         </Link>
       ),

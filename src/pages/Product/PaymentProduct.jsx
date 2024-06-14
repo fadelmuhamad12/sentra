@@ -1,6 +1,5 @@
-import React from 'react'
 import { useSelector } from 'react-redux';
-import { Button, Card, Col, Divider, Flex, Image, Row, Space, Typography } from 'antd'
+import { Col, Row, Typography } from 'antd'
 import CardAddress from '../../components/Card/CardAddress';
 import CardDetailCart from '../../components/Card/CardDetailCart';
 import CardPayment from '../../components/Card/CardPayment';
@@ -11,6 +10,8 @@ const PaymentProduct = () => {
 
 
   const cartCount = useSelector((state) => state.product.addToCart);
+  const { userData  } = useSelector((state) => state.authReducer);
+
 
   const handleBack = () => {
     window.history.back();
@@ -23,7 +24,7 @@ const PaymentProduct = () => {
           <Text onClick={handleBack} style={{ cursor: 'pointer' }}> Back </Text>
         </Col>
         <Col span={16}>
-          <CardAddress />
+          <CardAddress userData={userData}/>
         </Col>
         <Col span={16}>
           <CardDetailCart cartCount={cartCount}/>

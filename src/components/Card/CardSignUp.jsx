@@ -1,8 +1,7 @@
-import React from 'react';
-import { Link, useNavigate } from "react-router-dom";
-import { Button, Card, Col, Row, Typography, message, Form, Input } from 'antd';
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { signUpAction } from "../../redux/actions/Auth/authAction";
+import { Button, Card, Col, Row, Typography, message, Form, Input } from 'antd';
 
 const { Text, Title } = Typography;
 
@@ -72,7 +71,7 @@ const CardSignUp = () => {
               </Form.Item>
               <Form.Item
                 name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
+                rules={[{ required: true, message: 'Please input your password!', min: 8 }]}
               >
                 <Input.Password placeholder="Password" style={{ width: '100%' }} />
               </Form.Item>

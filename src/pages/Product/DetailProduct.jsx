@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Flex, Row, Skeleton, Typography } from 'antd'
 import CardDetailProduct from '../../components/Card/CardDetailProduct'
@@ -40,10 +40,8 @@ const DetailProduct = () => {
 
   const subTotal = (data?.price * total)
 
-  const handleAddToCart = (quantity) => {
-    // Dispatch an action to add the item to the cart
+  const handleAddToCart = () => {
     dispatch(addToCart(data))
-    console.log(`Adding ${data.name} to cart with quantity ${data.quantity}`);
   };
 
   if (!data) {

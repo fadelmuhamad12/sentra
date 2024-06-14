@@ -1,6 +1,5 @@
 import { StarFilled } from '@ant-design/icons'
 import { Button, Card, Col, Flex, Image, Row, Space, Tag, Typography } from 'antd'
-import React from 'react'
 
 const { Text } = Typography
 
@@ -58,7 +57,7 @@ const CardDetailProduct = (props) => {
             </Col>
             <Col span={24}>
               <Flex justify='center'>
-                <Button size='small' onClick={() => handleAddToCart(total)}>Add To Cart</Button>
+                <Button size='small' onClick={() => handleAddToCart(subTotal)}>Add To Cart</Button>
               </Flex>
             </Col>
           </Row>

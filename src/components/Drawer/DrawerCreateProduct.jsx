@@ -18,7 +18,6 @@ const DrawerCreateProduct = (props) => {
       if (!loading) {
         message.success({ message: 'Product created successfully!' });
         dispatch(listProductAction())
-        form.resetFields();
         closeCreate();
       }
     } catch (err) {

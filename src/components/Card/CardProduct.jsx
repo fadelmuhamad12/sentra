@@ -1,4 +1,3 @@
-import React from 'react'
 import { Card, Space, Typography } from 'antd'
 import { StarFilled } from '@ant-design/icons';
 
@@ -18,7 +17,7 @@ const CardProduct = (props) => {
         <Text style={{ color: 'black' }}>{name}</Text>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <Text style={{ color: 'black', fontWeight: 700 }}>Rp.{price}</Text>
+        <Text style={{ color: 'black', fontWeight: 700 }}>{`IDR ${Number(price).toLocaleString()}`}</Text>
       </div>
       <div style={{ textAlign: 'start' }}>
         <Space size={4}>
